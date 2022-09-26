@@ -1,0 +1,6 @@
+KitKat::0.50::12
+Coca-Cola::0.80::14
+Natural Bar::1.50::20
+Boost::0.60::20
+Salted Peanuts::2.00::19
+Lucazade Sport::1.00::19

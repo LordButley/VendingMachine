@@ -8,6 +8,9 @@ public class VendingMachineItem {
 	private BigDecimal price;
 	private int quantity;
 	
+	public VendingMachineItem(String name) {
+		this.name = name;
+	}
 	public String getName() {
 		return name;
 	}
@@ -18,6 +21,7 @@ public class VendingMachineItem {
 	public BigDecimal getPrice() {
 		return price;
 	}
+	
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}

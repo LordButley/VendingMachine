@@ -20,13 +20,31 @@ public class UserIOImpl implements UserIO {
 	}
 
 	@Override
-	public int readInt(String prompt) {
+	public int readInt(String prompt, int max) {
 		// TODO Auto-generated method stub
+		boolean isValid = false;
 		int choice = 0;
-		System.out.println(prompt);
-		String nextLine = myScanner.nextLine();
-		choice = Integer.parseInt(nextLine);
+		do {
+			try {
+				System.out.println(prompt);
+				String nextLine = myScanner.nextLine();
+				choice = Integer.parseInt(nextLine);
+				if (choice > 0 && choice <= max) {
+					isValid = true;
+				}else {
+					System.out.println("You did not enter a number between 1 and "+max);
+				}
+			}catch(NumberFormatException e) {
+				System.out.println("You did not enter a number between 1 and "+max);
+			}
+		}while(!isValid);
 		return choice;
+	}
+
+	@Override
+	public int addMoney(String prompt) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
