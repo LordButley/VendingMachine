@@ -41,7 +41,7 @@ public class VendingMachineView {
 	}
 	
 	public void insufficientBalance() {
-		io.print("Sorry, you have insufficient balance. Please add more funds");
+		io.print("Sorry, you have insufficient balance. Please choose something else");
 	}
 	
 	public String inputCoin() {
@@ -78,8 +78,14 @@ public class VendingMachineView {
           			funds = funds.add(new BigDecimal("0.25"));
                   break;
           		default:
-              	keepAdding = false;  	             
-			}
+          			if(funds.compareTo(new BigDecimal("0.5")) >= 0) {
+                      	keepAdding = false;  	             
+
+          			}else {
+          				io.print("Add more money");
+          			}
+          			
+          		}
 		}
 
 		return funds + "";

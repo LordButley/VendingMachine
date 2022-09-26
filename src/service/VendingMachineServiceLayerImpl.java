@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import dao.VendingMachineAuditDao;
 import dao.VendingMachineDao;
 import dao.VendingMachineDaoException;
 import dto.VendingMachineItem;
@@ -11,13 +12,16 @@ import dto.VendingMachineItem;
 public class VendingMachineServiceLayerImpl implements VendingMachineServiceLayer {
 	
 	VendingMachineDao dao;
+	private VendingMachineAuditDao auditDao;
 	
-	public VendingMachineServiceLayerImpl(VendingMachineDao dao) {
+	public VendingMachineServiceLayerImpl(VendingMachineDao dao, VendingMachineAuditDao auditDao) {
 		this.dao = dao;
+		this.auditDao = auditDao;
 	}
 	
 	public void removeItem(String name) throws VendingMachineDaoException{
 	    dao.removeItem(name);
+	    auditDao.writeAuditEntry(name +" PURCHASED.");
 	}
 	
 	public List<VendingMachineItem> getItems() throws VendingMachineDaoException{

@@ -1,4 +1,4 @@
-KitKat::0.50::12
+KitKat::0.50::11
 Coca-Cola::0.80::14
 Natural Bar::1.50::20
 Boost::0.60::20
